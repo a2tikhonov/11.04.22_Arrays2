@@ -1,6 +1,9 @@
 package ru.atikhonov;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.text.DecimalFormat;
+import java.util.Arrays;
 
 public class Main {
 
@@ -33,7 +36,61 @@ public class Main {
         for (int i = reverseFullName.length - 1; i >= 0; i--) {
             System.out.print(reverseFullName[i]);
         }
+        System.out.println();
+    //Задание 5
+        int fillNumber = 1;
+        int[][] matrix = new int[3][3];
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0, x = matrix[i].length - 1; j < matrix[i].length; j++, x--) {
+                if (i == j || i == x) matrix[i][j] = 1;
+                else matrix[i][j] = 0;
+            }
+        }
+        for (int[] row : matrix) {
+            for (int column : row) {
+                System.out.print(column + " ");
+            }
+            System.out.println();
+        }
+    //Задание 6
+        int[] arrWithError = {5, 4, 3, 2, 1};
+        System.out.println(Arrays.toString(arrWithError));
+        int[] rightArr = new int[arrWithError.length];
+        for (int i = 0, j = arrWithError.length - 1; i < arrWithError.length; i++, j--) {
+            rightArr[j] = arrWithError[i];
+        }
+        System.out.println(Arrays.toString(rightArr));
+        //Задание 7
+        int temp;
+        for (int i = 0; i < arrWithError.length / 2; i++) {
+            temp = arrWithError[i];
+            arrWithError[i] = arrWithError[arrWithError.length - 1 - i];
+            arrWithError[arrWithError.length - 1 - i] = temp;
+        }
+        System.out.println(Arrays.toString(arrWithError));
+        //Задание 8
+        int[] anotherArray = {-6, 2, 5, -8, 8, 10, 4, -7, 10, 1};
+        boolean sumOfNumbersEquals2 = false;
+        for (int i = 0; i < anotherArray.length; i++) {
+            for (int j = i + 1; j < anotherArray.length; j++) {
+                if (anotherArray[i] + anotherArray[j] == -2) {
+                    sumOfNumbersEquals2 = true;
+                    System.out.println(anotherArray[i] + " и " + anotherArray[j]);
+                }
+            }
+            if (sumOfNumbersEquals2) break;
+        }
+        //Задание 9
+        for (int i = 0; i < anotherArray.length; i++) {
+            for (int j = i + 1; j < anotherArray.length; j++) {
+                if (anotherArray[i] + anotherArray[j] == -2) {
+                    System.out.println(anotherArray[i] + " и " + anotherArray[j]);
+                }
+            }
+        }
+
     }
+
 
 
     public static int[] generateRandomArray() {
